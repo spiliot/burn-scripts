@@ -7,7 +7,7 @@ def eject_tray(srdev):
 
 def check_media_loaded(srdev):
     trashcan = open(os.devnull, 'w')
-    return subprocess.call(["./checkmedialoaded", srdev], stdout = trashcan)
+    return subprocess.call(["./checkmedia", srdev], stdout = trashcan)
 
 def burn(sgdev, file_to_burn):
     return subprocess.Popen("wodim -v -eject -data -gracetime=2 speed=16 dev='{0}' {1}".format(sgdev, file_to_burn), shell = True)
